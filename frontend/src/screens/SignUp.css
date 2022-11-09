@@ -1,0 +1,40 @@
+.signup__screen {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  inset: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup__screen section {
+  border: 1px solid #ccc;
+  padding: 30px;
+  border-radius: 4px;
+}
+
+.signup__screen input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  padding: 5px 10px 5px 10px;
+  width: 100%;
+}
+
+.signup__screen label {
+  font-size: 12px;
+  color: grey;
+}
+
+.signup__screen button {
+  background-color: blue;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 6px 14px;
+  margin-top: 10px;
+  cursor: pointer;
+  width: 100%;
+}
