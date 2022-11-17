@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { registerUserService } from "../services.js";
+import { registerUserService } from "../services/index.js";
 import "./SignUp.css";
 
 function SignUpScreen() {

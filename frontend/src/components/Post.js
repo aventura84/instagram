@@ -26,7 +26,7 @@ function Post({ post, removePost }) {
     }
   };
   return (
-    <article className="post">
+    <article>
       <p>{post.text}</p>
       {post.image ? (
         <img
@@ -35,7 +35,9 @@ function Post({ post, removePost }) {
         />
       ) : null}
       <p>
-        By<Link to={"/user/${post.useid"}>{post.email}</Link>on ("")
+        By<Link to={"/user/${post.user.id"}></Link>
+        {post.email}on {""}
+        By{post.email} on {""}
         <Link to={"/post/${post.id}"}>
           {new Date(post.created_at).toLocaleString()}
         </Link>

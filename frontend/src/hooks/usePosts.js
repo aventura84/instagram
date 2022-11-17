@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAllPostsService, getUserPostsService } from "../index2.js";
+import { getAllPostsService, getUserPostsService } from "../services/index.js";
 const usePosts = (id) => {
   const [posts, setPosts] = useState([]);
   const [loading, setloading] = useState(false);
@@ -27,7 +27,9 @@ const usePosts = (id) => {
   const addPost = (post) => {
     setPosts([post, ...posts]);
   };
-
-  return { posts, loading, error, addPost };
+  const removePost = (id) => {
+    setPosts(posts.filter((post) => post.id !== id));
+  };
+  return { posts, loading, error, addPost, removePost };
 };
 export default usePosts;

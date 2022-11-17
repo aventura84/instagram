@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext.js";
 
 function HomeScreen() {
-  const { posts, loading, error, addPost } = usePosts();
+  const { posts, loading, error, addPost, removePost } = usePosts();
   const { user, logout } = useContext(AuthContext);
 
   if (loading) return <p>loading posts</p>;
@@ -15,15 +15,15 @@ function HomeScreen() {
   return (
     <div>
       <Auth />
-      {
-        user
-          ? <>
-            <h1>Latest Posts</h1>
-            <Postlist posts={posts} />
-            <NewPost addPost={addPost} />
-          </>
-          : <p>Login to see posts</p>
-      }
+      {user ? (
+        <>
+          <h1>Latest Posts</h1>
+          <Postlist posts={posts} removePost={removePost} />
+          <NewPost addPost={addPost} />
+        </>
+      ) : (
+        <p>Login to see posts</p>
+      )}
     </div>
   );
 }

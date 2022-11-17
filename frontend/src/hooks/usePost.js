@@ -1,24 +1,17 @@
 import { useEffect, useState } from "react";
 import { getSinglePostService } from "../services";
 
-export const usePost = (postId) => {
+export const usePost = (id) => {
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const removePost = (id) => {
-    // TODO implement
-  };
-
-  const addPost = () => {
-    // TODO implement
-  };
 
   useEffect(() => {
     const loadPost = async () => {
       try {
         setLoading(true);
 
-        const data = await getSinglePostService(postId);
+        const data = await getSinglePostService(id);
 
         setPost(data);
       } catch (error) {
@@ -29,7 +22,7 @@ export const usePost = (postId) => {
     };
 
     loadPost();
-  }, [postId]);
+  }, [id]);
 
-  return { post, loading, error, addPost, removePost };
+  return { post, loading, error };
 };

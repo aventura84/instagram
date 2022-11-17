@@ -13,7 +13,7 @@ export const UserPage = () => {
     <section>
       <h1>User {user.email}</h1>
       <p>User id: {user.id}</p>
-      <p>Register on:{new Date(user.created_at).toLocaleString()}</p>
+      <p>Registered on:{new Date(user.created_at).toLocaleString()}</p>
       <UserPosts id={user.id} />
     </section>
   );

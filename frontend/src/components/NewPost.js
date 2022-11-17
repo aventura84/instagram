@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { sendPostService } from "../services.js";
+import { sendPostService } from "../services/index.js";
 
 function NewPost() {
   const [error, setError] = useState("");
