@@ -6,7 +6,6 @@
   "scripts": {
     "start-db": "sudo docker run -d -e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_DATABASE=Instagram -p 3307:3306 mysql",
     "init-db": "node ./db/initDB.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server.js"
   },
   "author": "",

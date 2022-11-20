@@ -1,10 +1,12 @@
+import { Post } from "./Post";
+
 const PostList = ({ posts, removePost }) => {
-  return posts.length ? (
+  return posts && posts.length ? (
     <ul className="post-list">
       {posts.map((post) => {
         return (
           <li key={post.id}>
-            <PostList post={post} removePost={removePost} />
+            <Post post={post} removePost={removePost} />
           </li>
         );
       })}

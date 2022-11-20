@@ -9,7 +9,6 @@ const usePosts = (id) => {
     const loadPosts = async () => {
       try {
         setloading(true);
-
         const data = id
           ? await getUserPostsService(id)
           : await getAllPostsService();

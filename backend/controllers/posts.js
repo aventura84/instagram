@@ -12,7 +12,6 @@ const { nanoid } = require('nanoid');
 const getPostsController = async (req, res, next) => {
   try {
     const posts = await getAllPosts();
-
     res.send({
       status: 'ok',
       data: posts,

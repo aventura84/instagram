@@ -3,7 +3,6 @@ import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { logInUserService } from "../services";
-import "./Login.css";
 
 function LoginScreen() {
   const emailRef = useRef();
@@ -30,9 +29,13 @@ function LoginScreen() {
   return (
     <div className="login__screen">
       <label>Email</label>
-      <input ref={emailRef} placeholder="Enter your email" />
+      <input type="email" ref={emailRef} placeholder="Enter your email" />
       <label>Password</label>
-      <input ref={passwordRef} placeholder="Enter your password" />
+      <input
+        type="password"
+        ref={passwordRef}
+        placeholder="Enter your password"
+      />
       {error && <p className="error">{error}</p>}
       <button onClick={loginHandler}>Log in my account</button>
     </div>

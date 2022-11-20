@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { sendPostService } from "../services/index.js";
 
-function NewPost() {
+function NewPost({ onCreated }) {
   const [error, setError] = useState("");
   const [sending, setSending] = useState(false);
   const [image, setImage] = useState(null);
@@ -14,6 +14,7 @@ function NewPost() {
       setSending(true);
       const data = new FormData(e.target);
       await sendPostService({ data, token });
+      onCreated();
       e.target.reset();
     } catch (error) {
       setError(error.message);

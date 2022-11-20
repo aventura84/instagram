@@ -19,7 +19,11 @@ function HomeScreen() {
         <>
           <h1>Latest Posts</h1>
           <Postlist posts={posts} removePost={removePost} />
-          <NewPost addPost={addPost} />
+          <NewPost
+            onCreated={() => {
+              window.location.reload();
+            }}
+          />
         </>
       ) : (
         <p>Login to see posts</p>

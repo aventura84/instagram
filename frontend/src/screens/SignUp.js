@@ -1,29 +1,32 @@
-import { useRef, useState } from "react";
-import { registerUserService } from "../services/index.js";
-import "./SignUp.css";
+import { useContext, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext.js";
+import { logInUserService, registerUserService } from "../services/index.js";
 
 function SignUpScreen() {
   const emailRef = useRef();
   const passwordRef = useRef();
-
-  const [createdAccount, setCreatedAccount] = useState(false);
+  const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const createAccountHandler = async () => {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     await registerUserService({ email, password });
-    setCreatedAccount(true);
+    const token = await logInUserService({ email, password });
+    login(token);
+    navigate("/");
   };
 
-  if (createdAccount) {
-    return <div>Created account</div>;
-  }
   return (
     <div className="signup__screen">
       <section>
-        <h1>Clon de Instagram</h1>
-        <input ref={emailRef} placeholder="Enter your email" />
-        <input ref={passwordRef} placeholder="Enter your password" />
+        <input type="email" ref={emailRef} placeholder="Enter your email" />
+        <input
+          type="password"
+          ref={passwordRef}
+          placeholder="Enter your password"
+        />
 
         <button onClick={createAccountHandler}>Create Account</button>
       </section>
